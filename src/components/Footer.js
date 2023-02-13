@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
     const location = useLocation()
     const url = location.pathname;
+    const [scale, setScale] = useState(50);
 
     return (
         <div className="content_fixed">
@@ -35,7 +36,7 @@ const Footer = () => {
 
                 <div className="zoom">
                     <p>zoom</p>
-                    <input type="range" className="form-range" id="range-slider__range" />
+                    <input type="range" className="form-range" id="range-slider__range" value={scale} onChange={e => { const { value } = e.target; setScale(parseInt(value, 10)); }}/>
                 </div>
             </div>
         </div>

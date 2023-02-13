@@ -8,10 +8,13 @@ const GraphLeft = () => {
     const location = useLocation()
     const url = location.pathname;
 
+    var curr = new Date();
+    var date = curr.toISOString().substring(0, 10);
+
     return (
         <div className="sidebar_right">
             {
-                url === '/boards' ?
+                url === '/boards' || url === '/' ?
                     <div className="graph">
                         <div className="box box_small">
                             <h3>My christmas:</h3>
@@ -287,6 +290,15 @@ const GraphLeft = () => {
                     :
 
                     <div className="planet">
+                        <div className="planet-calander">
+                            <h3>First set the <br /> desired date:</h3>
+                            <div className="form-group">
+                                <label htmlFor="date">Select date</label>
+                                <input type="date" defaultValue={date} name="date" id="date" />
+                                <button type="submit">OK <span></span></button>
+                            </div>
+                        </div>
+
                         <div className="box box_small">
                             <h3>Planets:</h3>
 
@@ -327,8 +339,8 @@ const GraphLeft = () => {
 
                             <div className="box_lists">
                                 <div className="box_list">
-                                    <img src="assets/img/p-preview1.jpg" alt="img" className="img-fluid" />
-                                    <p className='active'>€€</p>
+                                    <img src="assets/img/moon-preview.jpg" alt="img" className="img-fluid" />
+                                    <p>€€</p>
                                 </div>
                             </div>
                         </div>

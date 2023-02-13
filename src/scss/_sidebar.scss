@@ -170,5 +170,101 @@
                 }
             }
         }
+
+        .planet-calander {
+            margin-bottom: 50px;
+
+            h3 {
+                color: $white;
+                font-size: 15px;
+                margin-bottom: 20px;
+            }
+
+            .form-group {
+                position: relative;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+
+                label {
+                    position: absolute;
+                    font-size: 12px;
+                    top: -10px;
+                    left: 10px;
+                    background: $sidebar;
+                    padding: 0 5px;
+                    color: lighten($black, 80%);
+                }
+
+                input {
+                    width: 100%;
+                    background: transparent;
+                    border: 1px solid $body;
+                    border-radius: 8px;
+                    padding: 15px;
+                    color: $white;
+                    font-size: 18px;
+
+                    &::-webkit-calendar-picker-indicator {
+                        filter: invert(1);
+                    }
+                }
+
+                button {
+                    position: relative;
+                    color: $white;
+                    border: 1px solid $header;
+                    background: $header;
+                    font-size: 15px;
+                    border-radius: 8px;
+                    min-width: 59px;
+                    height: 59px;
+
+                    span {
+                        position: absolute;
+                        width: 8px;
+                        height: 8px;
+                        background-color: $clr5;
+                        border-radius: 100%;
+                        top: -3px;
+                        right: -3px;
+                        cursor: pointer;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+                            width: 8px;
+                            height: 8px;
+                            background: $clr5;
+                            border-radius: 100%;
+                            top: 0;
+                            right: 0;
+                            transform-origin: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@-webkit-keyframes ping {
+
+    75%,
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes ping {
+
+    75%,
+    to {
+        transform: scale(2);
+        opacity: 0;
     }
 }
